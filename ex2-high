@@ -1,0 +1,65 @@
+from datetime import datetime
+
+# Sample data for three investment instruments
+# Each tuple contains (date, value)
+instrument_1 = [
+    ("2023-01-01", 100),
+    ("2023-02-01", 105),
+    ("2023-03-01", 110),
+    ("2023-04-01", 115)
+]
+
+instrument_2 = [
+    ("2023-01-01", 200),
+    ("2023-02-01", 210),
+    ("2023-03-01", 220),
+    ("2023-04-01", 250)
+]
+
+instrument_3 = [
+    ("2023-01-01", 150),
+    ("2023-02-01", 155),
+    ("2023-03-01", 160),
+    ("2023-04-01", 165)
+]
+
+instruments = {
+    "Instrument 1": instrument_1,
+    "Instrument 2": instrument_2,
+    "Instrument 3": instrument_3
+}
+
+def parse_date(date_str):
+    return datetime.strptime(date_str, "%Y-%m-%d")
+
+def get_value_on_date(data, target_date):
+    for date_str, value in data:
+        if parse_date(date_str) == target_date:
+            return value
+    return None
+
+def calculate_growth_rate(start_value, end_value):
+    return ((end_value - start_value) / start_value) * 100
+
+def main():
+    # Prompt user for start and end dates
+    start_date_str = input("Enter the start date (YYYY-MM-DD): ")
+    end_date_str = input("Enter the end date (YYYY-MM-DD): ")
+    
+    start_date = parse_date(start_date_str)
+    end_date = parse_date(end_date_str)
+    
+    highest_growth_rate = float('-inf')
+    best_instrument = None
+
+    for name, data in instruments.items():
+        start_value = get_value_on_date(data, start_date)
+        end_value = get_value_on_date(data, end_date)
+        
+        if start_value is not None and end_value is not None:
+            growth_rate = calculate_growth_rate(start_value, end_value)
+            print(f"{name} growth rate: {growth_rate:.2f}%")
+            
+            if growth_rate > highest_growth_rate:
+                highest_growth_rate = growth_rate
+             
