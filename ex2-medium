@@ -1,0 +1,23 @@
+def remove_duplicates(names):
+    # Convert the list to a set to remove duplicates, then convert it back to a list
+    unique_names = list(set(names))
+    return unique_names
+
+def main():
+    # List of student names with some duplicates
+    student_names = [
+        "Alice",
+        "Bob",
+        "Charlie",
+        "Alice",
+        "Eva",
+        "David",
+        "Bob",
+        "Charlie"
+    ]
+    
+    # Remove duplicates from the list of names
+    unique_student_names = remove_duplicates(student_names)
+    
+    # Print the updated list of names
+    print("Updated list of student names (duplicates
