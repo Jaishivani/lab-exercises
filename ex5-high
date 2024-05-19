@@ -1,0 +1,38 @@
+def calculate_order_total(cart):
+    total_amount = sum(item["price"] for item in cart)
+    return total_amount
+
+def apply_discount(total_amount):
+    if total_amount > 100:
+        discount = total_amount * 0.15
+    elif total_amount > 50:
+        discount = total_amount * 0.10
+    else:
+        discount = 0
+    return discount
+
+def main():
+    # Sample cart with items and their prices
+    cart = [
+        {"item": "Pizza", "price": 15},
+        {"item": "Burger", "price": 10},
+        {"item": "Salad", "price": 8},
+        {"item": "Fries", "price": 6},
+    ]
+    
+    # Calculate the total amount of the order
+    total_amount = calculate_order_total(cart)
+    
+    # Apply discount based on the total amount
+    discount = apply_discount(total_amount)
+    
+    # Calculate the discounted total amount
+    discounted_total = total_amount - discount
+    
+    # Print the results
+    print(f"Total amount: ${total_amount:.2f}")
+    print(f"Discount applied: ${discount:.2f}")
+    print(f"Discounted total: ${discounted_total:.2f}")
+
+if __name__ == "__main__":
+    main()
