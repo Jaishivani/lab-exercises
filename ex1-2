@@ -1,0 +1,23 @@
+def decimal_to_binary(n):
+    return bin(n).replace("0b", "")
+
+def decimal_to_octal(n):
+    return oct(n).replace("0o", "")
+
+def decimal_to_hexadecimal(n):
+    return hex(n).replace("0x", "")
+
+def main():
+    num = int(input("Enter a decimal number: "))
+    
+    binary_representation = decimal_to_binary(num)
+    octal_representation = decimal_to_octal(num)
+    hexadecimal_representation = decimal_to_hexadecimal(num)
+    
+    print(f"Decimal: {num}")
+    print(f"Binary: {binary_representation}")
+    print(f"Octal: {octal_representation}")
+    print(f"Hexadecimal: {hexadecimal_representation}")
+
+if __name__ == "__main__":
+    main()
