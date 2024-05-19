@@ -1,0 +1,12 @@
+def check_number(num):
+    if num > 0:
+        print("Positive")
+    elif num < 0:
+        print("Negative")
+    else:
+        print("Zero")
+
+# Test the function with different numbers
+check_number(5)    # Positive
+check_number(-3)   # Negative
+check_number(0)    # Zero
