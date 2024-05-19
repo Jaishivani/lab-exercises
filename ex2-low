@@ -1,0 +1,25 @@
+def total_score(student):
+    # Calculate the total score by summing the scores in all subjects
+    return student[1] + student[2] + student[3]
+
+def sort_students_by_total_score(students):
+    # Sort the students based on their total score in descending order
+    sorted_students = sorted(students, key=total_score, reverse=True)
+    return sorted_students
+
+def main():
+    # List of students with their scores in (Math, Physics, Chemistry)
+    students = [
+        ("Alice", 88, 90, 85),
+        ("Bob", 75, 78, 72),
+        ("Charlie", 95, 92, 93),
+        ("David", 70, 85, 80),
+        ("Eva", 85, 87, 90)
+    ]
+    
+    # Sort the students by their total scores
+    sorted_students = sort_students_by_total_score(students)
+    
+    # Print the sorted list
+    for student in sorted_students:
+        print(f"{student[0]}: Total Score = {total_score(student)} (Math: {student
